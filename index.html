@@ -31,144 +31,419 @@
     </script>
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            line-height: 1.7;
+            color: #1e293b;
+            background-color: #f8fafc;
         }
 
         .header-banner {
-            background: linear-gradient(135deg, #0f4c75 0%, #1a5c8a 100%);
+            background: linear-gradient(135deg, #0f4c75 0%, #1a5c8a 50%, #236da3 100%);
             color: white;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .header-banner h1 {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 600;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.5px;
         }
 
         .main-container {
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         .side-nav {
             width: 280px;
             padding: 40px 20px;
-            background-color: #f8f9fa;
+            background-color: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
         }
 
         .side-nav ul {
             list-style: none;
-            position: sticky;
-            top: 20px;
         }
 
         .side-nav a {
-            display: block;
-            padding: 12px 16px;
-            color: #334155;
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            color: #475569;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 500;
+            margin-bottom: 6px;
+            transition: all 0.3s ease;
             border-left: 3px solid transparent;
+        }
+
+        .side-nav a::before {
+            content: '●';
+            margin-right: 12px;
+            font-size: 8px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
         }
 
         .side-nav a.active,
         .side-nav a:hover {
-            background-color: #dbeafe;
+            background-color: #e0f2fe;
             color: #0f4c75;
             border-left-color: #0f4c75;
+            transform: translateX(4px);
+        }
+
+        .side-nav a.active::before,
+        .side-nav a:hover::before {
+            opacity: 1;
+            color: #0f4c75;
         }
 
         .side-nav .sub-link {
-            margin-left: 20px;
+            margin-left: 24px;
             font-size: 14px;
+            padding: 10px 16px;
+        }
+
+        .side-nav .sub-link::before {
+            content: '→';
+            font-size: 12px;
         }
 
         .content {
             flex: 1;
-            padding: 40px 60px;
+            padding: 50px 70px;
             background: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.02);
         }
 
         section {
-            margin-bottom: 60px;
-            scroll-margin-top: 20px;
+            margin-bottom: 70px;
+            scroll-margin-top: 30px;
         }
 
         section h2 {
             color: #0f4c75;
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 30px;
+            margin-bottom: 24px;
             border-bottom: 3px solid #0f4c75;
-            padding-bottom: 12px;
+            padding-bottom: 14px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
         }
 
         section h3 {
             font-size: 22px;
-            margin: 30px 0 15px;
+            margin: 35px 0 18px;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        section h4 {
+            font-size: 18px;
+            margin: 25px 0 15px;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #334155;
+        }
+
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #475569;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            border-left: 4px solid #0284c7;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 28px 0;
+            box-shadow: 0 2px 8px rgba(2,132,199,0.1);
         }
 
         .info-box {
-            padding: 20px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0284c7;
+            padding: 24px;
             border-radius: 8px;
-            margin: 25px 0;
-            border-left: 4px solid;
+            margin: 28px 0;
+            box-shadow: 0 2px 8px rgba(2,132,199,0.1);
+            position: relative;
         }
 
-        .info-box.info {
-            background: #e3f2fd;
-            border-color: #1976d2;
+        .info-box::before {
+            content: 'ℹ️';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            opacity: 0.3;
         }
 
-        .info-box.warning {
-            background: #fff8e1;
-            border-color: #f57c00;
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fef9e7 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 28px 0;
+            box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+            position: relative;
         }
 
-        .faq-item {
-            margin-bottom: 12px;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            opacity: 0.3;
+        }
+
+        .faq-section {
+            margin-bottom: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .faq-section:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
         }
 
         .faq-question {
-            padding: 16px 20px;
+            padding: 20px 24px;
             cursor: pointer;
-            background: #f8f9fa;
+            background: #f8fafc;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            color: #1e293b;
+        }
+
+        .faq-question:hover {
+            background: #f1f5f9;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 300;
+            color: #0f4c75;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-section.open .faq-question::after {
+            transform: rotate(45deg);
         }
 
         .faq-answer {
-            display: none;
-            padding: 16px 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: white;
+            padding: 0 24px;
         }
 
-        .faq-item.open .faq-answer {
-            display: block;
+        .faq-section.open .faq-answer {
+            max-height: 500px;
+            padding: 20px 24px;
+            border-top: 1px solid #e2e8f0;
         }
 
         .script-box {
-            background: #f0fdf4;
-            border-left: 4px solid #22c55e;
-            padding: 25px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 5px solid #22c55e;
+            padding: 32px;
+            border-radius: 10px;
+            margin: 32px 0;
+            box-shadow: 0 4px 12px rgba(34,197,94,0.12);
+            position: relative;
+        }
+
+        .script-box::before {
+            content: '📋';
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            font-size: 32px;
+            opacity: 0.2;
+        }
+
+        .script-box h4 {
+            color: #15803d;
+            margin-top: 0;
+        }
+
+        .script-box p, .script-box ul, .script-box li {
+            color: #166534;
+        }
+
+        .script-box em {
+            display: block;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 6px;
+            font-style: italic;
+            color: #15803d;
         }
 
         .contact-info {
-            background: #f3f4f6;
-            padding: 25px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 40px;
+            border-radius: 12px;
             text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-info h2 {
+            border: none;
+            margin-bottom: 16px;
+            padding-bottom: 0;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            margin: 12px 0;
+        }
+
+        .contact-info strong {
+            color: #0f4c75;
+            font-weight: 600;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #0f4c75;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(15,76,117,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        #back-to-top:hover {
+            background: #1a5c8a;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(15,76,117,0.4);
+        }
+
+        #back-to-top.show {
+            display: flex;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 968px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .side-nav {
+                width: 100%;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+                padding: 20px;
+            }
+
+            .side-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .side-nav li {
+                flex: 1 1 auto;
+            }
+
+            .side-nav a {
+                padding: 12px 16px;
+                font-size: 14px;
+                justify-content: center;
+            }
+
+            .side-nav .sub-link {
+                margin-left: 0;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .header-banner h1 {
+                font-size: 26px;
+            }
+
+            section h2 {
+                font-size: 24px;
+            }
+
+            #back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
         }
     </style>
 </head>
@@ -185,69 +460,68 @@
             <li><a href="#objectif" class="nav-link active">Objectif</a></li>
             <li><a href="#public" class="nav-link">Public concerné</a></li>
             <li><a href="#pratique" class="nav-link">En pratique</a></li>
-            <li><a href="#script" class="nav-link sub-link">↳ Script</a></li>
+            <li><a href="#script" class="nav-link sub-link">Script</a></li>
         </ul>
     </nav>
 
     <main class="content">
 
         <!-- OBJECTIF -->
-  <section id="objectif">
-    <h2>Objectif</h2>
+        <section id="objectif">
+            <h2>Objectif</h2>
 
-    <p><strong>Pourquoi rappeler les risques de sanction encourus&nbsp;?</strong></p>
+            <p><strong>Pourquoi rappeler les risques de sanction encourus&nbsp;?</strong></p>
 
-    <p><strong>Pour fournir une information accessible, transparente et partagée sur les sanctions et le système de contrôle</strong> :
-    À la suite de la lecture du contrat d'engagement avec le demandeur d'emploi et avant sa signature, vous devez consacrer un temps spécifique à l'explication des risques de sanction en cas de manquement aux engagements prévus par le contrat.</p>
-  </section>
+            <p><strong>Pour fournir une information accessible, transparente et partagée sur les sanctions et le système de contrôle</strong> :
+            À la suite de la lecture du contrat d'engagement avec le demandeur d'emploi et avant sa signature, vous devez consacrer un temps spécifique à l'explication des risques de sanction en cas de manquement aux engagements prévus par le contrat.</p>
+        </section>
 
-  <!-- PUBLIC CONCERNÉ -->
-  <section id="public">
-    <h2>Public concerné</h2>
+        <!-- PUBLIC CONCERNÉ -->
+        <section id="public">
+            <h2>Public concerné</h2>
 
-    <!-- Encadré Cadre et périmètre -->
-    <div class="highlight-box">
-      <p><strong>Vous consacrerez du temps à l'explication du contrôle de la recherche d'emploi et des risques de sanction avec tous les demandeurs d'emploi que vous accompagnez qui s'apprêtent à signer un nouveau contrat d'engagement.</strong></p>
-    </div>
+            <div class="highlight-box">
+                <p><strong>Vous consacrerez du temps à l'explication du contrôle de la recherche d'emploi et des risques de sanction avec tous les demandeurs d'emploi que vous accompagnez qui s'apprêtent à signer un nouveau contrat d'engagement.</strong></p>
+            </div>
 
-    <h3>Questions fréquentes</h3>
+            <h3>Questions fréquentes</h3>
 
-    <div class="faq-section">
-      <div class="faq-question">
-        Dois-je communiquer sur les sanctions en cas de non-respect des engagements peu importe la dominante de mon portefeuille d'accompagnement (Suivi, Guidé, Renforcé, Global...) ?
-      </div>
-      <div class="faq-answer">
-        <strong>OUI.</strong> Tous les demandeurs d'emploi, quelle que soit leur modalité d'accompagnement, sont concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Cependant, les situations particulières de chaque demandeur d'emploi peuvent vous amener à adapter votre discours. Ex : inclure le risque de sanction lié au refus de trois ORE, si celle-ci a été définie.
-      </div>
-    </div>
+            <div class="faq-section" data-faq-id="faq_1">
+                <div class="faq-question">
+                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements peu importe la dominante de mon portefeuille d'accompagnement (Suivi, Guidé, Renforcé, Global...) ?
+                </div>
+                <div class="faq-answer">
+                    <strong>OUI.</strong> Tous les demandeurs d'emploi, quelle que soit leur modalité d'accompagnement, sont concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Cependant, les situations particulières de chaque demandeur d'emploi peuvent vous amener à adapter votre discours. Ex : inclure le risque de sanction lié au refus de trois ORE, si celle-ci a été définie.
+                </div>
+            </div>
 
-    <div class="faq-section">
-      <div class="faq-question">
-        Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des bénéficiaires du RSA que j'accompagne ?
-      </div>
-      <div class="faq-answer">
-        <strong>OUI.</strong> Les bénéficiaires du RSA, s'ils sont suivis par un(e) conseiller(e) France Travail sont également concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Certains freins à la compréhension tels qu'une mauvaise maîtrise du français peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.
-      </div>
-    </div>
+            <div class="faq-section" data-faq-id="faq_2">
+                <div class="faq-question">
+                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des bénéficiaires du RSA que j'accompagne ?
+                </div>
+                <div class="faq-answer">
+                    <strong>OUI.</strong> Les bénéficiaires du RSA, s'ils sont suivis par un(e) conseiller(e) France Travail sont également concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Certains freins à la compréhension tels qu'une mauvaise maîtrise du français peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.
+                </div>
+            </div>
 
-    <div class="faq-section">
-      <div class="faq-question">
-        Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des demandeurs d'emploi en situation de handicap suivis par un(e) conseiller(e) Cap 'Emploi ?
-      </div>
-      <div class="faq-answer">
-        <strong>NON.</strong> Vous devez informer les demandeurs d'emploi en situation de handicap qui s'apprêtent à signer un contrat d'engagement des risques de sanction à France Travail seulement si ces derniers sont suivis par un(e) conseiller(e) France Travail. Certains freins à la compréhension tels qu'un handicap peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.
-      </div>
-    </div>
+            <div class="faq-section" data-faq-id="faq_3">
+                <div class="faq-question">
+                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des demandeurs d'emploi en situation de handicap suivis par un(e) conseiller(e) Cap 'Emploi ?
+                </div>
+                <div class="faq-answer">
+                    <strong>NON.</strong> Vous devez informer les demandeurs d'emploi en situation de handicap qui s'apprêtent à signer un contrat d'engagement des risques de sanction à France Travail seulement si ces derniers sont suivis par un(e) conseiller(e) France Travail. Certains freins à la compréhension tels qu'un handicap peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.
+                </div>
+            </div>
 
-    <div class="faq-section">
-      <div class="faq-question">
-        La communication sur les sanctions s'applique-t-elle aux demandeurs d'emploi suivis par les missions locales ?
-      </div>
-      <div class="faq-answer">
-        <strong>NON.</strong> Elle ne s'applique qu'aux demandeurs d'emploi inscrits et accompagnés par France Travail. L'expérimentation ne concerne donc pas les jeunes en missions locales.
-      </div>
-    </div>
-  </section>
+            <div class="faq-section" data-faq-id="faq_4">
+                <div class="faq-question">
+                    La communication sur les sanctions s'applique-t-elle aux demandeurs d'emploi suivis par les missions locales ?
+                </div>
+                <div class="faq-answer">
+                    <strong>NON.</strong> Elle ne s'applique qu'aux demandeurs d'emploi inscrits et accompagnés par France Travail. L'expérimentation ne concerne donc pas les jeunes en missions locales.
+                </div>
+            </div>
+        </section>
 
         <!-- EN PRATIQUE -->
         <section id="pratique">
@@ -255,93 +529,92 @@
 
             <p>Après le partage des engagements tels que notés sur le contrat d'engagement et avant la signature du contrat d'engagement, prenez le temps pour expliquer (sans entrer dans les détails) :</p>
 
-    <ul>
-      <li>Comment et par qui est vérifié le respect des engagements du demandeur d'emploi,</li>
-      <li>Quelles situations peuvent conduire à une sanction et quels types de sanctions existent,</li>
-      <li>L'importance de la traçabilité des démarches et d'informer son conseiller en cas d'évolution de sa situation ou d'empêchement.</li>
-    </ul>
+            <ul>
+                <li>Comment et par qui est vérifié le respect des engagements du demandeur d'emploi,</li>
+                <li>Quelles situations peuvent conduire à une sanction et quels types de sanctions existent,</li>
+                <li>L'importance de la traçabilité des démarches et d'informer son conseiller en cas d'évolution de sa situation ou d'empêchement.</li>
+            </ul>
 
-    <div class="info-box">
-      <p>Vous êtes libre d'adapter votre manière de présenter ces informations selon votre aisance sur le sujet et la situation de la personne. Vous pouvez utiliser le script ci-dessous comme support à la discussion. Nous vous conseillons de le lire entièrement avec le demandeur d'emploi : il contient tout le nécessaire. Si vous vous sentez à l'aise, vous pouvez le reformuler, faire des ajouts et l'adapter avec vos propres mots.</p>
-    </div>
+            <div class="info-box">
+                <p>Vous êtes libre d'adapter votre manière de présenter ces informations selon votre aisance sur le sujet et la situation de la personne. Vous pouvez utiliser le script ci-dessous comme support à la discussion. Nous vous conseillons de le lire entièrement avec le demandeur d'emploi : il contient tout le nécessaire. Si vous vous sentez à l'aise, vous pouvez le reformuler, faire des ajouts et l'adapter avec vos propres mots.</p>
+            </div>
 
-    <!-- Script -->
-    <section id="script">
-      <h3>Script</h3>
+            <!-- Script -->
+            <section id="script">
+                <h3>Script</h3>
 
-      <div class="script-box">
-        <h4>Texte clé en main pour aborder les sanctions</h4>
+                <div class="script-box">
+                    <h4>Texte clé en main pour aborder les sanctions</h4>
 
-        <p><em>Ce texte contient les éléments essentiels à transmettre. Vous pouvez le lire tel quel ou le reformuler avec vos propres mots.</em></p>
+                    <em>Ce texte contient les éléments essentiels à transmettre. Vous pouvez le lire tel quel ou le reformuler avec vos propres mots.</em>
 
-        <p>Nous venons de voir ensemble les engagements que nous avons l'un envers l'autre.</p>
+                    <p>Nous venons de voir ensemble les engagements que nous avons l'un envers l'autre.</p>
 
-        <p>Pour votre parfaite information sachez que le non-respect de vos engagements peut donner lieu à des sanctions pouvant aller de l'action de remobilisation jusqu'à une radiation de 4 mois selon le manquement et/ou sa récurrence.</p>
+                    <p>Pour votre parfaite information sachez que le non-respect de vos engagements peut donner lieu à des sanctions pouvant aller de l'action de remobilisation jusqu'à une radiation de 4 mois selon le manquement et/ou sa récurrence.</p>
 
-        <p><strong>Deux grands types de situations peuvent donner lieu à sanction :</strong></p>
-        <ul>
-          <li>Le non-respect des engagements ou actions inscrits dans votre contrat d'engagement,</li>
-          <li>L'absence non justifiée à un rendez-vous ou à une prestation.</li>
-        </ul>
+                    <p><strong>Deux grands types de situations peuvent donner lieu à sanction :</strong></p>
+                    <ul>
+                        <li>Le non-respect des engagements ou actions inscrits dans votre contrat d'engagement,</li>
+                        <li>L'absence non justifiée à un rendez-vous ou à une prestation.</li>
+                    </ul>
 
-        <p><strong>(Pour les DE ayant une ORE)</strong> Nous avons défini ensemble une Offre Raisonnable d'Emploi. Vous devez accepter toute offre répondant aux critères définis. Si vous refusez à 2 reprises une ORE, vous risquez des sanctions pouvant aller jusqu'à la radiation.</p>
+                    <p><strong>(Pour les DE ayant une ORE)</strong> Nous avons défini ensemble une Offre Raisonnable d'Emploi. Vous devez accepter toute offre répondant aux critères définis. Si vous refusez à 2 reprises une ORE, vous risquez des sanctions pouvant aller jusqu'à la radiation.</p>
 
-        <p>Le constat d'un manquement aux obligations peut se faire au fil de l'eau dans le cadre de l'accompagnement ou lors d'un contrôle aléatoire par notre plateforme de contrôle de recherche d'emploi.</p>
+                    <p>Le constat d'un manquement aux obligations peut se faire au fil de l'eau dans le cadre de l'accompagnement ou lors d'un contrôle aléatoire par notre plateforme de contrôle de recherche d'emploi.</p>
 
-        <p>C'est pourquoi il est important que nous puissions tracer vos actions et que vous m'informiez des évolutions de votre situation et/ou de tout empêchement sur des démarches prévues ensemble.</p>
+                    <p>C'est pourquoi il est important que nous puissions tracer vos actions et que vous m'informiez des évolutions de votre situation et/ou de tout empêchement sur des démarches prévues ensemble.</p>
 
-        <p>C'est dans cette optique de partage et de transparence que nous signons ce jour le contrat d'engagement. Il va nous permettre, d'une part, de partager une feuille de route de votre parcours de retour à l'emploi et d'autre part, de poser un cadre clair et sécurisé afin de développer une relation de confiance.</p>
-      </div>
+                    <p>C'est dans cette optique de partage et de transparence que nous signons ce jour le contrat d'engagement. Il va nous permettre, d'une part, de partager une feuille de route de votre parcours de retour à l'emploi et d'autre part, de poser un cadre clair et sécurisé afin de développer une relation de confiance.</p>
+                </div>
 
-      <div class="warning-box">
-        <p><strong>Important :</strong> Vérifiez que le demandeur d'emploi a bien compris les informations. Reformulez si nécessaire et répondez à ses questions.</p>
-      </div>
-    </section>
+                <div class="warning-box">
+                    <p><strong>Important :</strong> Vérifiez que le demandeur d'emploi a bien compris les informations. Reformulez si nécessaire et répondez à ses questions.</p>
+                </div>
+            </section>
 
             <h3>Questions fréquentes</h3>
 
-            <div class="faq-section">
-      <div class="faq-question">
-        Dois-je rappeler les risques de sanction si le demandeur d'emploi que j'accompagne signe un nouveau contrat (suite à un changement d'adresse, de parcours, etc.) ?
-      </div>
-      <div class="faq-answer">
-        <strong>OUI.</strong> La signature d'un nouveau contrat signifie potentiellement que la situation du demandeur d'emploi a évolué. Plusieurs mois peuvent s'être écoulés depuis la première présentation des risques liés au non-respect des engagements. Il est donc possible qu'il les ait oubliés, et les efforts de recherche d'emploi attendus peuvent également avoir changé.
-      </div>
-    </div>
+            <div class="faq-section" data-faq-id="faq_5">
+                <div class="faq-question">
+                    Dois-je rappeler les risques de sanction si le demandeur d'emploi que j'accompagne signe un nouveau contrat (suite à un changement d'adresse, de parcours, etc.) ?
+                </div>
+                <div class="faq-answer">
+                    <strong>OUI.</strong> La signature d'un nouveau contrat signifie potentiellement que la situation du demandeur d'emploi a évolué. Plusieurs mois peuvent s'être écoulés depuis la première présentation des risques liés au non-respect des engagements. Il est donc possible qu'il les ait oubliés, et les efforts de recherche d'emploi attendus peuvent également avoir changé.
+                </div>
+            </div>
 
-    <div class="faq-section">
-      <div class="faq-question">
-        J'ai peur de ne pas assez bien connaître tous les types de sanctions et leurs changements récents pour les expliquer correctement aux demandeurs d'emploi. Que faire ?
-      </div>
-      <div class="faq-answer">
-        Si vous trouvez que vous manquez d'aisance pour expliquer le contrôle de la recherche d'emploi et les risques de sanction encourus, vous pouvez simplement lire la notice fournie dans ce guide. Nul besoin d'entrer dans les détails, celle-ci est suffisante.
-      </div>
-    </div>
+            <div class="faq-section" data-faq-id="faq_6">
+                <div class="faq-question">
+                    J'ai peur de ne pas assez bien connaître tous les types de sanctions et leurs changements récents pour les expliquer correctement aux demandeurs d'emploi. Que faire ?
+                </div>
+                <div class="faq-answer">
+                    Si vous trouvez que vous manquez d'aisance pour expliquer le contrôle de la recherche d'emploi et les risques de sanction encourus, vous pouvez simplement lire la notice fournie dans ce guide. Nul besoin d'entrer dans les détails, celle-ci est suffisante.
+                </div>
+            </div>
 
-    <div class="faq-section">
-      <div class="faq-question">
-        Je crains que ce discours détériore la relation avec les demandeurs d'emploi que j'accompagne.
-      </div>
-      <div class="faq-answer">
-        Être transparent dès le début de l'accompagnement sur les engagements réciproques permet de poser un cadre clair et de construire une relation de confiance avec le demandeur d'emploi. Il n'est pas nécessaire d'entrer dans le détail du processus de contrôle si vous ne souhaitez pas évoquer votre propre rôle dans les signalements, par exemple. Vous restez libres de ne pas communiquer certaines informations si vous jugez que celles-ci pourraient vous mettre en difficulté.
-      </div>
-    </div>
-
-  </section>
+            <div class="faq-section" data-faq-id="faq_7">
+                <div class="faq-question">
+                    Je crains que ce discours détériore la relation avec les demandeurs d'emploi que j'accompagne.
+                </div>
+                <div class="faq-answer">
+                    Être transparent dès le début de l'accompagnement sur les engagements réciproques permet de poser un cadre clair et de construire une relation de confiance avec le demandeur d'emploi. Il n'est pas nécessaire d'entrer dans le détail du processus de contrôle si vous ne souhaitez pas évoquer votre propre rôle dans les signalements, par exemple. Vous restez libres de ne pas communiquer certaines informations si vous jugez que celles-ci pourraient vous mettre en difficulté.
+                </div>
+            </div>
+        </section>
 
         <!-- Contact -->
-            <div class="contact-info">
-                <h2>Informations de Contact</h2>
-                <p>Si vous avez d'autres questions, vous pouvez écrire à <strong>experimentation_ced@ipp.eu</strong>.</p>
-                <p>L'équipe de recherche de l'Institut des Politiques Publiques vous répondra, et mettra à jour la liste des questions fréquentes.</p>
-            </div>
-        </main>
-    </div>
+        <div class="contact-info">
+            <h2>Informations de Contact</h2>
+            <p>Si vous avez d'autres questions, vous pouvez écrire à <strong>experimentation_ced@ipp.eu</strong>.</p>
+            <p>L'équipe de recherche de l'Institut des Politiques Publiques vous répondra, et mettra à jour la liste des questions fréquentes.</p>
+        </div>
+    </main>
+</div>
 
-    <script>
-        
-/* === TRACKING IDENTIQUE AU GUIDE 1 + SCRIPT === */
+<button id="back-to-top" aria-label="Retour en haut">↑</button>
 
+<script>
+/* === TRACKING === */
 const tracking = { sections:{}, faqOpenTimes:{}, sessionStart:Date.now() };
 
 function sendEvent(name, params={}) {
@@ -353,19 +626,37 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             sendEvent('section_view', { section: entry.target.id });
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + entry.target.id) {
+                    link.classList.add('active');
+                }
+            });
         }
     });
 },{ threshold:0.3 });
 
 document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-/* FAQ */
-document.querySelectorAll('.faq-item').forEach(item => {
+/* FAQ with animation */
+document.querySelectorAll('.faq-section').forEach(item => {
     const q = item.querySelector('.faq-question');
     const id = item.dataset.faqId;
+    
     q.addEventListener('click', () => {
-        const open = item.classList.toggle('open');
-        sendEvent('faq_click',{ faq_id:id, action:open?'open':'close' });
+        const wasOpen = item.classList.contains('open');
+        
+        // Close all other FAQs
+        document.querySelectorAll('.faq-section').forEach(other => {
+            if (other !== item) other.classList.remove('open');
+        });
+        
+        item.classList.toggle('open');
+        const isOpen = !wasOpen;
+        
+        sendEvent('faq_click',{ faq_id:id, action: isOpen ? 'open':'close' });
     });
 });
 
@@ -387,12 +678,47 @@ const scriptObserver = new IntersectionObserver(entries=>{
     });
 },{threshold:0.5});
 
-scriptObserver.observe(scriptSection);
+if (scriptSection) scriptObserver.observe(scriptSection);
 
 /* Nav click */
 document.querySelectorAll('.nav-link').forEach(link=>{
-    link.addEventListener('click',()=>{
-        sendEvent('nav_click',{ target: link.getAttribute('href') });
+    link.addEventListener('click',(e)=>{
+        e.preventDefault();
+        const target = link.getAttribute('href');
+        const element = document.querySelector(target);
+        
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        sendEvent('nav_click',{ target: target });
+    });
+});
+
+/* Back to top button */
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    sendEvent('back_to_top_click');
+});
+
+/* Smooth scroll for all internal links */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 });
 </script>
