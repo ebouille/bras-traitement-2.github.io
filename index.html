@@ -81,15 +81,10 @@
         }
 
         .side-nav {
-            width: 280px;
-            padding: 40px 20px;
-            background-color: #ffffff;
-            border-right: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-        }
+           width: 280px;
+           padding: 40px 20px;
+        background-color: #f8f9fa; /* bleu clair conservé */
+}
 
         .side-nav ul {
             list-style: none;
@@ -211,15 +206,6 @@
             position: relative;
         }
 
-        .info-box::before {
-            content: 'ℹ️';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            opacity: 0.3;
-        }
-
         .warning-box {
             background: linear-gradient(135deg, #fef3c7 0%, #fef9e7 100%);
             border-left: 4px solid #f59e0b;
@@ -228,15 +214,6 @@
             margin: 28px 0;
             box-shadow: 0 2px 8px rgba(245,158,11,0.1);
             position: relative;
-        }
-
-        .warning-box::before {
-            content: '⚠️';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            opacity: 0.3;
         }
 
         .faq-section {
@@ -305,15 +282,6 @@
             margin: 32px 0;
             box-shadow: 0 4px 12px rgba(34,197,94,0.12);
             position: relative;
-        }
-
-        .script-box::before {
-            content: '📋';
-            position: absolute;
-            top: 28px;
-            right: 28px;
-            font-size: 32px;
-            opacity: 0.2;
         }
 
         .script-box h4 {
@@ -470,10 +438,10 @@
         <section id="objectif">
             <h2>Pourquoi communiquer sur les obligations et risques liés au non-respect du contrat ?</h2>
 
-            <p>Pour fournir une <strong>information accessible, transparente et partagée</strong> sur le système de contrôle prévu par France Travail et sur le risque de sanction encouru en cas de non-respect des engagements du contrat d'engagement : compléter ?
+            <p>Pour fournir une <strong>information accessible, transparente et partagée</strong> sur le système de contrôle prévu par France Travail et sur le risque de sanction encouru en cas de non-respect des engagements du contrat d'engagement.
 
             <div class="info-box info">
-               <h4>ℹ️ Dans le cadre de l'introduction du contrat d'engagement, France Travail et l'Institut des Politiques Publiques travaillent conjointement à l'amélioration de ce dispositif, en évaluant notamment son caractère contraignant.</h4>
+               <h4>ℹ️ Dans le cadre de l'introduction du contrat d'engagement, France Travail et l'Institut des Politiques Publiques travaillent conjointement à l'amélioration de ce dispositif, et cherchent à comprendre l'impact du contrat d’engagement.</h4>
             </div>
         </section>
 
@@ -531,7 +499,7 @@
             <p><strong>À la suite de la lecture du contrat d'engagement avec le demandeur d'emploi et avant sa signature</strong>, prenez le temps d'<strong>expliquer</strong> (sans entrer dans les détails) :</p>
 
             <div class="info-box">
-                <ul>
+                <ul> ℹ️
                     <li>Comment et par qui est vérifié le respect des engagements du demandeur d'emploi,</li>
                     <li>Quelles situations peuvent conduire à une sanction et quels types de sanctions existent,</li>
                     <li>L'importance de la traçabilité des démarches et d'informer son conseiller en cas d'évolution de sa situation ou d'empêchement.</li>
@@ -543,11 +511,11 @@
 
             <!-- Script -->
             <section id="script">
-                <h3>Texte clé en main pour aborder les sanctions</h3>
+                <h3> Texte clé en main pour aborder les sanctions</h3>
 
                 <div class="script-box">
 
-                    <em>Ce texte contient les éléments essentiels à transmettre. Vous pouvez le lire tel quel ou le reformuler avec vos propres mots.</em>
+                    📋  <em> Ce texte contient les éléments essentiels à transmettre. Vous pouvez le lire tel quel ou le reformuler avec vos propres mots.</em>
 
                     <p>Nous venons de voir ensemble les engagements que nous avons l'un envers l'autre.</p>
 
@@ -559,7 +527,7 @@
                         <li>L'absence non justifiée à un rendez-vous ou à une prestation.</li>
                     </ul>
 
-                    <p><strong>(Pour les DE ayant une ORE)</strong> Nous avons défini ensemble une Offre Raisonnable d'Emploi. Vous devez accepter toute offre répondant aux critères définis. Si vous refusez à 2 reprises une ORE, vous risquez des sanctions pouvant aller jusqu'à la radiation.</p>
+                    <p><strong>Pour les DE ayant une ORE :</strong> Nous avons défini ensemble une Offre Raisonnable d'Emploi. Vous devez accepter toute offre répondant aux critères définis. Si vous refusez à 2 reprises une ORE, vous risquez des sanctions pouvant aller jusqu'à la radiation.</p>
 
                     <p>Le constat d'un manquement aux obligations peut se faire au fil de l'eau dans le cadre de l'accompagnement ou lors d'un contrôle aléatoire par notre plateforme de contrôle de recherche d'emploi.</p>
 
@@ -569,7 +537,7 @@
                 </div>
 
                 <div class="warning-box">
-                    <p><strong>Important :</strong> Vérifiez que le demandeur d'emploi a bien compris les informations. Reformulez si nécessaire et répondez à ses questions.</p>
+                    <p><strong> ⚠️ Important :</strong> Vérifiez que le demandeur d'emploi a bien compris les informations. Reformulez si nécessaire et répondez à ses questions.</p>
                 </div>
             </section>
 
