@@ -28,8 +28,8 @@
         gtag('js', new Date());
         gtag('config', 'G-5WH1QZ11CP');
       }
-    </script>
-
+   </script>
+    
     <style>
         * { 
             margin: 0; 
@@ -81,10 +81,10 @@
         }
 
         .side-nav {
-           width: 280px;
-           padding: 40px 20px;
-        background-color: #f8f9fa; /* bleu clair conservé */
-}
+            width: 280px;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+        }
 
         .side-nav ul {
             list-style: none;
@@ -123,17 +123,6 @@
         .side-nav a:hover::before {
             opacity: 1;
             color: #0f4c75;
-        }
-
-        .side-nav .sub-link {
-            margin-left: 24px;
-            font-size: 14px;
-            padding: 10px 16px;
-        }
-
-        .side-nav .sub-link::before {
-            content: '→';
-            font-size: 12px;
         }
 
         .content {
@@ -190,22 +179,27 @@
         .highlight-box {
             background: #fff8e1;
             border-left: 4px solid #f57c00;
-            padding: 24px;
+            padding: 12px 20px;
             border-radius: 8px;
             margin: 28px 0;
-            box-shadow: 0 2px 8px rgba(2,132,199,0.1);
+            box-shadow: 0 2px 8px rgba(245,158,11,0.1);
         }
 
-        .info-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-left: 4px solid #0284c7;
-            padding: 24px;
-            border-radius: 8px;
-            margin: 28px 0;
-            box-shadow: 0 2px 8px rgba(2,132,199,0.1);
-            position: relative;
-        }
+      .info-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid #0284c7;
+    padding: 8px 20px;
+    border-radius: 8px;
+    margin: 28px 0;
+    box-shadow: 0 2px 8px rgba(2,132,199,0.1);
+    position: relative;
+    font-size: 0.9em;
+    font-weight: normal;
+}
 
+.info-box p {
+    margin: 0;
+}
         .warning-box {
             background: linear-gradient(135deg, #fef3c7 0%, #fef9e7 100%);
             border-left: 4px solid #f59e0b;
@@ -213,6 +207,29 @@
             border-radius: 8px;
             margin: 28px 0;
             box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+            position: relative;
+        }
+
+.warning-box p {
+    margin: 0;
+}
+        .success-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #22c55e;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 28px 0;
+            box-shadow: 0 2px 8px rgba(34,197,94,0.12);
+            position: relative;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-left: 4px solid #8e24aa;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 28px 0;
+            box-shadow: 0 2px 8px rgba(142,36,170,0.12);
             position: relative;
         }
 
@@ -292,7 +309,10 @@
         .script-box p, .script-box ul, .script-box li {
             color: #166534;
         }
-
+.script-box li {
+    margin-bottom: 0.4rem; /* ajuste si besoin */
+    line-height: 1.3;
+}
         .script-box em {
             display: block;
             margin-bottom: 20px;
@@ -302,7 +322,9 @@
             font-style: italic;
             color: #15803d;
         }
-
+.script-box p {
+    margin: 0;
+}
         .contact-info {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             padding: 40px;
@@ -390,17 +412,33 @@
                 justify-content: center;
             }
 
-            .side-nav .sub-link {
-                margin-left: 0;
-            }
-
             .content {
                 padding: 30px 20px;
             }
 
-            .header-banner h1 {
-                font-size: 26px;
-            }
+ .header-banner {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+    }
+    
+    .header-banner img {
+        position: absolute;
+        left: 20px;
+        width: 60px;
+        height: auto;
+    }
+    
+    .header-text {
+        flex: 1;
+        text-align: center;
+    }
+    
+    .header-text h1 {
+        font-size: 26px;
+        margin: 5px 0;
+    }
 
             section h2 {
                 font-size: 24px;
@@ -418,131 +456,130 @@
 
 <body>
 
-<div class="header-banner">
-    <h1>Guide à destination des conseiller(e)s</h1>
+<div class="header-banner" style="position: relative; padding-top: 60px;">
+    <img src="logoFT.png" alt="Logo" style="position: absolute; left: 30px; top: 30px; width: 300px; height: auto;">
+    <div class="header-text" style="text-align: center;">
+        <h1>Guide pratique conseiller(e)s</h1>
+        <h1>Communiquer sur les obligations et les risques</h1>
+    </div>
 </div>
-
 <div class="main-container">
     <nav class="side-nav">
         <ul>
             <li><a href="#objectif" class="nav-link active">Objectif</a></li>
             <li><a href="#public" class="nav-link">Public concerné</a></li>
-            <li><a href="#pratique" class="nav-link">En pratique</a></li>
-            <li><a href="#script" class="nav-link sub-link">Script</a></li>
+            <li><a href="#pratique" class="nav-link">Informer sur le CRE</a>
+              <ul class="sub-nav">
+                    <li><a href="#script" class="nav-link">
+                            Texte d'information clé en main</a></li>
+                </ul>
+            </li>
+             <li><a href="#faq" class="nav-link sub-link">FAQ</a></li>
+             <li><a href="#contact" class="nav-link sub-link">Contact</a></li>
         </ul>
     </nav>
 
     <main class="content">
 
         <!-- OBJECTIF -->
-        <section id="objectif">
-            <h2>Pourquoi communiquer sur les obligations et risques liés au non-respect du contrat ?</h2>
-
-            <p>Pour fournir une <strong>information accessible, transparente et partagée</strong> sur le système de contrôle prévu par France Travail et sur le risque de sanction encouru en cas de non-respect des engagements du contrat d'engagement.
-
-            <div class="info-box info">
-               <h4>ℹ️ Dans le cadre de l'introduction du contrat d'engagement, France Travail et l'Institut des Politiques Publiques travaillent conjointement à l'amélioration de ce dispositif, et cherchent à comprendre l'impact du contrat d’engagement.</h4>
-            </div>
-        </section>
-
+<section id="objectif">
+    <h2>Pourquoi communiquer sur les obligations et les risques en cas de non-respect du contrat ?</h2>
+    <ul>
+        <li>
+            Pour garantir une <strong>information claire, accessible et transparente sur le dispositif de contrôle</strong> mis en œuvre par France Travail, ainsi que sur les <strong>sanctions possibles en cas de non-respect des engagements</strong> du contrat d’engagement.
+        </li>
+        <li>
+            Pour aider à <strong>corriger les représentations erronées des demandeurs d’emploi concernant leur probabilité d’être sanctionnés</strong>, à la suite d’un contrôle aléatoire ou d'un signalement. 
+        </li>
+    </ul>
+             <div class="info-box"> 
+            <p>ℹ️ Dans le cadre de la mise en œuvre du contrat d’engagement, France Travail, en collaboration avec l’Institut des politiques publiques, cherche à améliorer cet outil en évaluant l’impact d'une meilleure information sur les devoirs du demandeur d'emploi et les risques associés au non respect de ses engagements.</p> </div>
+   
         <!-- PUBLIC CONCERNÉ -->
         <section id="public">
-            <h2>Public concerné</h2>
+            <h2>Pour quel public ?</h2>
 
             <div class="highlight-box">
                 <p><strong>Tous les demandeurs d'emploi que vous accompagnez qui s'apprêtent à signer un nouveau contrat d'engagement.</strong></p>
             </div>
 
-            <h3>Questions fréquentes</h3>
 
+        <!-- EN PRATIQUE -->
+        <section id="pratique">
+            <h2>En pratique, quelles informations donner sur le contrôle de la recherche d'emploi ?</h2>
+            
+            <p>Avant la signature du contrat d'engagement, il est important de rappeler :
+                <ul> 
+                    <li><strong>Quelles situations peuvent conduire à une sanction</strong> et quels types de sanctions existent,</li>
+                    <li><strong>Comment et par qui est vérifié le respect des engagements</strong> du demandeur d'emploi,</li>
+                    <li><strong>L'importance de la traçabilité des démarches et d'informer son conseiller</strong> en cas d'évolution de sa situation ou d'empêchement.</li>
+                </ul></p>
+
+                <div class="warning-box">
+                    <p>
+                        ⚠️ Important : Vous êtes libre d'adapter votre manière de présenter ces informations selon votre aisance sur le sujet. 
+                        Certains freins à la compréhension (ex: mauvaise maîtrise du français, handicap...) peuvent également vous amener à adapter votre discours pour qu'il soit compris et mémorisé.
+                    </p>
+                </div>  
+             
+
+            <!-- Script -->
+            <section id="script"> 
+                <h4>Vous pouvez utiliser le texte d'information ci-dessous comme support à la discussion.</h4>   
+
+                <div class="script-box">
+
+                    <em> 📋 Ce texte contient les éléments essentiels à transmettre. Vous pouvez vous contentez de le lire ou de le reformuler, sans plus entrer dans les détails.</em>
+
+                    <p>Nous venons de voir ensemble les engagements que nous avons l’un envers l’autre.</p>
+
+<p>Un manquement à ces engagements peut être constaté à la suite :</p>
+<ul>
+    <li>D’un <strong>contrôle aléatoire</strong> effectué par la plateforme de contrôle de la recherche d’emploi ;</li>
+    <li>D’un <strong>signalement automatique</strong> du système informatique (en cas d’absences non justifiées répétées) ;</li>
+    <li>D’un <strong>signalement réalisé par un(e) conseiller(e) France Travail</strong>.</li>
+</ul>
+
+<p>Deux types de manquements peuvent entraîner une sanction:</p>
+<ul>
+    <li>Le <strong>non-respect des engagements et des démarches</strong> prévus dans votre contrat d’engagement ;</li>
+    <li>L’<strong>absence non justifiée</strong> à un rendez-vous ou à une prestation.</li>
+</ul>
+<p>
+    Si un manquement est confirmé, une sanction peut être prononcée.
+    Elle peut aller d’une <strong>suspension-remobilisation</strong> — correspondant à une suspension temporaire du versement de vos droits jusqu’à régularisation de la situation — à une <strong>radiation pouvant aller jusqu’à 4 mois</strong>.<br>
+<br>
+    C’est pourquoi il est important que vous m’informiez de toute évolution de votre situation ou de tout empêchement concernant les démarches prévues ensemble.<br>
+<br>
+    C’est dans cette logique de transparence que nous signons aujourd’hui le contrat d’engagement. 
+    Il fixe une feuille de route pour votre retour à l’emploi et pose les bases d'une relation de confiance entre nous.
+</p>
+</div>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>FAQ</h2>
+        
             <div class="faq-section" data-faq-id="faq_1">
                 <div class="faq-question">
-                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements peu importe la dominante de mon portefeuille d'accompagnement (Suivi, Guidé, Renforcé, Global...) ?
+                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements peu importe la dominante de mon portefeuille d'accompagnement (Suivi, Guidé, Essentiel, Renforcé, Global, Intensif...) ?
                 </div>
                 <div class="faq-answer">
-                    <strong>OUI.</strong> Tous les demandeurs d'emploi, quelle que soit leur modalité d'accompagnement, sont concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Cependant, les situations particulières de chaque demandeur d'emploi peuvent vous amener à adapter votre discours. Ex : inclure le risque de sanction lié au refus de trois ORE, si celle-ci a été définie.
+                    <strong>OUI.</strong> Tous les demandeurs d'emploi, quelle que soit leur modalité d'accompagnement, sont concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Cependant, les situations particulières de chaque demandeur d'emploi peuvent vous amener à adapter votre discours.<br>
+                     Ex : pour les demandeurs d'emploi avec lesquels vous avez défini une Offre Raisonnable d'Emploi (ORE), mentionner que le troisième refus d'une offre correspondant aux critères de l'ORE peut également être sanctionné.</p>
+
                 </div>
             </div>
 
             <div class="faq-section" data-faq-id="faq_2">
                 <div class="faq-question">
-                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des bénéficiaires du RSA que j'accompagne ?
+                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des publics accompagnés par France Travail mais non-indemenisables à l'assurance chômage ?
                 </div>
                 <div class="faq-answer">
-                    <strong>OUI.</strong> Les bénéficiaires du RSA, s'ils sont suivis par un(e) conseiller(e) France Travail sont également concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Certains freins à la compréhension tels qu'une mauvaise maîtrise du français peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.
+                    <strong>OUI.</strong> Toute personne suivie par un(e) conseiller(e) France Travail est concernée par cette information, dès lors qu'elle s'apprête à signer un contrat d'engagement. Cela inclut les personnes non-indemnisables ainsi que les publics bénéficiant d'un accompagnement spécifique (bénéficiaires du RSA, de l'AAH, jeunes avec une allocation CEJ).
                 </div>
             </div>
-
-            <div class="faq-section" data-faq-id="faq_3">
-                <div class="faq-question">
-                    Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des demandeurs d'emploi en situation de handicap suivis par un(e) conseiller(e) Cap 'Emploi ?
-                </div>
-                <div class="faq-answer">
-                    <strong>NON.</strong> Vous devez informer les demandeurs d'emploi en situation de handicap qui s'apprêtent à signer un contrat d'engagement des risques de sanction à France Travail seulement si ces derniers sont suivis par un(e) conseiller(e) France Travail. Certains freins à la compréhension tels qu'un handicap peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.
-                </div>
-            </div>
-
-            <div class="faq-section" data-faq-id="faq_4">
-                <div class="faq-question">
-                    La communication sur les sanctions s'applique-t-elle aux demandeurs d'emploi suivis par les missions locales ?
-                </div>
-                <div class="faq-answer">
-                    <strong>NON.</strong> Elle ne s'applique qu'aux demandeurs d'emploi inscrits et accompagnés par France Travail. L'expérimentation ne concerne donc pas les jeunes en missions locales.
-                </div>
-            </div>
-        </section>
-
-        <!-- EN PRATIQUE -->
-        <section id="pratique">
-            <h2>En pratique</h2>
-            
-            <p><strong>À la suite de la lecture du contrat d'engagement avec le demandeur d'emploi et avant sa signature</strong>, prenez le temps d'<strong>expliquer</strong> (sans entrer dans les détails) :</p>
-
-            <div class="info-box">
-                <ul> 
-                    <li>Comment et par qui est vérifié le respect des engagements du demandeur d'emploi,</li>
-                    <li>Quelles situations peuvent conduire à une sanction et quels types de sanctions existent,</li>
-                    <li>L'importance de la traçabilité des démarches et d'informer son conseiller en cas d'évolution de sa situation ou d'empêchement.</li>
-                </ul>
-            </div>
-
-            <p>Vous êtes libre d'adapter votre manière de présenter ces informations selon votre aisance sur le sujet et la situation de la personne. Vous pouvez utiliser le <strong>script ci-dessous</strong> comme support à la discussion. Nous vous conseillons de le lire entièrement avec le demandeur d'emploi : il contient tout le nécessaire.</p>
-
-
-            <!-- Script -->
-            <section id="script">
-                <h3> Texte clé en main pour aborder les sanctions</h3>
-
-                <div class="script-box">
-
-                    <em> 📋 Ce texte contient les éléments essentiels à transmettre. Vous pouvez le lire tel quel ou le reformuler avec vos propres mots.</em>
-
-                    <p>Nous venons de voir ensemble les engagements que nous avons l'un envers l'autre.</p>
-
-                    <p>Pour votre parfaite information sachez que le non-respect de vos engagements peut donner lieu à des sanctions pouvant aller de l'action de remobilisation jusqu'à une radiation de 4 mois selon le manquement et/ou sa récurrence.</p>
-
-                    <p><strong>Deux grands types de situations peuvent donner lieu à sanction :</strong></p>
-                    <ul>
-                        <li>Le non-respect des engagements ou actions inscrits dans votre contrat d'engagement,</li>
-                        <li>L'absence non justifiée à un rendez-vous ou à une prestation.</li>
-                    </ul>
-
-                    <p><strong>Pour les DE ayant une ORE :</strong> Nous avons défini ensemble une Offre Raisonnable d'Emploi. Vous devez accepter toute offre répondant aux critères définis. Si vous refusez à 2 reprises une ORE, vous risquez des sanctions pouvant aller jusqu'à la radiation.</p>
-
-                    <p>Le constat d'un manquement aux obligations peut se faire au fil de l'eau dans le cadre de l'accompagnement ou lors d'un contrôle aléatoire par notre plateforme de contrôle de recherche d'emploi.</p>
-
-                    <p>C'est pourquoi il est important que nous puissions tracer vos actions et que vous m'informiez des évolutions de votre situation et/ou de tout empêchement sur des démarches prévues ensemble.</p>
-
-                    <p>C'est dans cette optique de partage et de transparence que nous signons ce jour le contrat d'engagement. Il va nous permettre, d'une part, de partager une feuille de route de votre parcours de retour à l'emploi et d'autre part, de poser un cadre clair et sécurisé afin de développer une relation de confiance.</p>
-                </div>
-
-                <div class="warning-box">
-                    <p><strong> ⚠️ Important :</strong> Vérifiez que le demandeur d'emploi a bien compris les informations. Reformulez si nécessaire et répondez à ses questions.</p>
-                </div>
-            </section>
-
-            <h3>Questions fréquentes</h3>
-
+        
             <div class="faq-section" data-faq-id="faq_5">
                 <div class="faq-question">
                     Dois-je rappeler les risques de sanction si le demandeur d'emploi que j'accompagne signe un nouveau contrat (suite à un changement d'adresse, de parcours, etc.) ?
@@ -574,7 +611,7 @@
         <!-- Contact -->
         <div class="contact-info">
             <h2>Informations de Contact</h2>
-            <p>Si vous avez d'autres questions, vous pouvez écrire à <strong>experimentation_ced@ipp.eu</strong>.</p>
+            <p>Si vous avez d'autres questions, vous pouvez écrire à <strong>ced@ipp.eu</strong>.</p>
             <p>L'équipe de recherche de l'Institut des Politiques Publiques vous répondra, et mettra à jour la liste des questions fréquentes.</p>
         </div>
     </main>
@@ -616,11 +653,6 @@ document.querySelectorAll('.faq-section').forEach(item => {
     
     q.addEventListener('click', () => {
         const wasOpen = item.classList.contains('open');
-        
-        // Close all other FAQs
-        document.querySelectorAll('.faq-section').forEach(other => {
-            if (other !== item) other.classList.remove('open');
-        });
         
         item.classList.toggle('open');
         const isOpen = !wasOpen;
